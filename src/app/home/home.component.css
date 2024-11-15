@@ -1,0 +1,16 @@
+.main-layout {
+    display: flex;
+    padding-top: 20px;
+    min-height: 100vh;
+  }
+  
+  app-menu {
+    flex-shrink: 0;
+  }
+  
+  app-container {
+    flex-grow: 1;
+    padding-bottom: 100px; /* Añade espacio al fondo equivalente a la altura del footer */
+    font-family: 'Roboto', sans-serif; /* Cambiamos la fuente a Roboto */
+  }
+ 

@@ -1,0 +1,17 @@
+.footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  opacity: 0; /* El footer comienza invisible */
+  z-index: 1000;
+  transition: opacity 0.5s ease-in-out; /* Transición suave */
+}
+
+/* Cuando el footer se debe mostrar */
+.footer.show {
+  opacity: 1; /* Haz que el footer sea visible */
+}

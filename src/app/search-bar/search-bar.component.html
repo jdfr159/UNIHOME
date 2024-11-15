@@ -1,0 +1,25 @@
+<div class="cont_search">
+  <div class="search-bar">
+    <input 
+      type="text" 
+      placeholder="Buscar..." 
+      [(ngModel)]="searchTerm" 
+      (input)="onSearch()"
+      (focus)="showSuggestions()" 
+      (blur)="hideSuggestions()" />
+      
+    <button (click)="onSearch()" class="search-button">
+      <!-- <img src="../../assets/img/icons8-buscar-50.png"> -->
+       Buscar
+    </button> <!-- Botón de búsqueda -->
+  
+    <!-- Menú desplegable de recomendaciones, visible solo cuando showDropdown es true -->
+    <ul class="suggestions" *ngIf="showDropdown && filteredItems.length > 0">
+      <li *ngFor="let item of filteredItems" (mousedown)="selectItem(item)">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+  

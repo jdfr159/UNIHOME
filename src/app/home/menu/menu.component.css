@@ -1,0 +1,23 @@
+.menu {
+  background-color: #f1f1f1;
+  padding: 20px;
+  width: 200px;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu a {
+  color: #003366;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}

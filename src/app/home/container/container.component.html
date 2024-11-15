@@ -1,0 +1,49 @@
+<div class="container" *ngIf="showContainer">
+  <app-search-bar></app-search-bar>
+
+  <!-- Publicaciones destacadas -->
+  <h2 class="mt-5">Publicaciones destacadas</h2>
+
+  <!-- Tarjetas con inmuebles -->
+  <div class="card-container">
+    <div class="card" *ngFor="let inmueble of inmuebles">
+      <img [src]="inmueble.image" alt="Inmueble destacado">
+      <div class="card-content">
+        <h5>{{ inmueble.title }}</h5>
+        <p>{{ inmueble.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mt-5">Participantes</h2>
+
+  <div class="card-container">
+  <!-- Tarjeta 1 -->
+  <div class="card2">
+    <img src="../../../assets/img/Luis-miguel.jpg" alt="Imagen de la persona" class="card-img">
+    <div class="card2-content">
+      <h2>Luis Miguel Vergara Suarez</h2>
+      <p><strong>Cargo:</strong> Desarrollador Backend</p>
+      <p><strong>Carrera Universitaria:</strong> Ingeniería en Sistemas</p>
+      <p><strong>Edad:</strong> 21 años</p>
+      <p class="bio">Apasionado por la tecnología y el desarrollo web, con experiencia en Angular. Me gusta enfrentar retos y crear soluciones innovadoras.</p>
+    </div>
+  </div>
+
+  <!-- Tarjeta 2 -->
+  <div class="card2">
+    <img src="../../../assets/img/avatar23.png" alt="Imagen de la persona" class="card2-img">
+    <div class="card2-content">
+      <h2>Jorge Deeandres Figueroa Rodriguez</h2>
+      <p><strong>Cargo:</strong> Diseñador Frontend</p>
+      <p><strong>Carrera Universitaria:</strong> Ingenieria de Sistemas</p>
+      <p><strong>Edad:</strong> 23 años</p>
+      <p class="bio">Mi tarea es crear experiencias de usuario atractivas y funcionales, trabajando en la interfaz de sitios web.</p>
+    </div>
+  </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+

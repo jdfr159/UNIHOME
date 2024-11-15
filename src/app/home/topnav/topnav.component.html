@@ -1,0 +1,27 @@
+<nav class="topnav">
+  <div class="logo">
+    <img src="../../../assets/img/LogoSample_sin.png" alt="Logo">
+  </div>
+  <div class="nav-links">
+    <a routerLink="" routerLinkActive="active">Inicio</a>
+    <a routerLink="propiedades" routerLinkActive="active">Comprar</a>
+    <a routerLink="" routerLinkActive="active">Arrendar</a>
+    <a routerLink="venderinmueble" routerLinkActive="active">Vender</a>
+  </div>
+
+  <!-- Botón de Iniciar Sesión cuando el usuario no está autenticado -->
+  <div class="login" *ngIf="!userName">
+    <button type="button" routerLink="/login" class="login-btn">Iniciar sesión</button>
+  </div>
+
+  <!-- Información del usuario cuando está autenticado -->
+  <div *ngIf="userName" class="user-info">
+    <img src="../../../assets/img/icon_user.png" class="user-image rounded-circle shadow" alt="User Image">
+    <div class="user-details">
+      <p class="user-name">{{ userName }}</p>
+      <p class="user-role">{{ userRole }}</p>
+      <small class="user-email">{{ email }}</small>
+    </div>
+    <button (click)="logout()" class="logout-btn">Salir</button>
+  </div>
+</nav>

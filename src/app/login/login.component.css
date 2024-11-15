@@ -1,0 +1,117 @@
+/* Estilos generales para la página */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+}
+
+/* Contenedor principal de la página de inicio de sesión */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Caja de inicio de sesión */
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* Logo y encabezado */
+.login-logo img {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 150px;
+}
+
+.login-logo p, .login-logo .h2 {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+.colorbt {
+    color: #3498db; /* Cambia el color si deseas */
+}
+
+/* Card de inicio de sesión */
+.card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Cuerpo de la tarjeta */
+.login-card-body {
+    padding: 30px;
+}
+
+/* Títulos y mensajes de la caja de inicio de sesión */
+.login-box-msg, .text-primary {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilos de los campos de entrada */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+.input-group-text {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Estilo del checkbox */
+.form-check-label {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Botón de inicio de sesión */
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/* Alertas de error */
+.alert-danger {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Responsividad */
+@media (max-width: 576px) {
+    .login-box {
+        padding: 15px;
+    }
+
+    .form-control, .input-group-text, .btn-primary {
+        font-size: 14px;
+    }
+
+    .login-logo img {
+        max-width: 120px;
+    }
+}
+

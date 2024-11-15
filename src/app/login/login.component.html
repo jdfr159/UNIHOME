@@ -1,0 +1,52 @@
+<body>
+    <div class="login-page app-loaded">
+        <div class="login-box">
+            <div class="login-logo"> 
+                <div class="h2 pb-2 mb-2">
+                    <img src="../../assets/img/logo_2_fondo.png" style="width: 100%;">
+                </div>
+                <div class="h2 pb-2 mb-2 colorbt">
+                    <p class="login-box-msg"><b>UNIHOME</b></p>
+            </div>
+            </div> 
+
+            <div class="card  rounded Larger shadow shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body login-card-body">
+                    <div class="h6 pb-2 mb-4 text-primary">
+                        <p class="login-box-msg">Indicia sesión para ingresar</p>
+                    </div>
+                    <form action="#" method="post">
+                        <div class="input-group mb-3"> 
+                            <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="username" name="username">
+                            <div class="input-group-text"> 
+                            <span class="bi bi-person-fill-lock">
+                            </span> 
+                            </div>
+                        </div>
+                        <div class="input-group mb-3"> <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password">
+                            <div class="input-group-text"> <span class="bi bi-lock-fill"></span> </div>
+                        </div> <!--begin::Row-->
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="form-check"> 
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Recordar nombre de usuario
+                                    </label> 
+                                </div>
+                            </div> <!-- /.col -->
+                            <div class="col-4">
+                                <div class="d-grid gap-2"> <button class="btn btn-primary" (click)="login()">Iniciar</button> </div>
+                                <div class="d-grid gap-2"> <button class="btn btn-primary" (click)="Registrar()">Registrar</button> </div>
+                            </div> <!-- /.col -->
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+                                {{errorMessage}}
+                        </div>
+                        </div> <!--end::Row-->
+                    </form>
+                </div> <!-- /.login-card-body -->
+            </div>
+        </div>
+    </div>
+</body>
+
