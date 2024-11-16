@@ -20,7 +20,7 @@ export class PropiedadesComponent implements OnInit {
   ngOnInit(): void {
     this.propiedadesService.listarPropiedades().subscribe({
       next: (data) => {
-        this.propiedades = data; // Ajusta según la estructura de la respuesta del backend
+        this.propiedades = data.data; // Acceder a 'data' si el backend envía los datos dentro de esta propiedad
         this.loading = false;
       },
       error: (error) => {

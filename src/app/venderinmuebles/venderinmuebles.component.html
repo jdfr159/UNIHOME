@@ -65,5 +65,10 @@
       {{ loading ? 'Registrando...' : 'Registrar' }}
     </button>
   </form>
+
+  <!-- Mensaje de éxito -->
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
 </div>
 
