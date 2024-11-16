@@ -73,3 +73,22 @@ body {
       padding: 15px;
     }
   }
+
+  .success-message {
+    color: green;
+    background-color: #e6f7e6;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: red;
+    background-color: #f8d7da;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
