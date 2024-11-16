@@ -1,62 +1,69 @@
-<!-- venderinmuebles.component.html -->
-<body>
-  <div class="form-container">
-    <form [formGroup]="saleForm" (ngSubmit)="submitForm()" class="form-wrapper">
-      
-      <!-- Navegación entre secciones -->
-      <div class="form-navigation">
-        <button type="button" (click)="setActiveSection('main')" [class.active]="activeSection === 'main'">Datos Principales</button>
-        <button type="button" (click)="setActiveSection('details')" [class.active]="activeSection === 'details'">Detalles Adicionales</button>
+<div class="form-container">
+  <h2>Registrar Propiedad</h2>
+  <form [formGroup]="saleForm" (ngSubmit)="submitForm()">
+    <div class="form-section">
+      <label for="tipo">Tipo de Transacción:</label>
+      <select id="tipo" formControlName="tipo" [class.input-invalid]="saleForm.get('tipo')?.invalid && saleForm.get('tipo')?.touched" required>
+        <option value="" disabled selected>Seleccione...</option>
+        <option value="venta">Venta</option>
+        <option value="arriendo">Arriendo</option>
+      </select>
+      <div *ngIf="saleForm.get('tipo')?.invalid && saleForm.get('tipo')?.touched" class="error">
+        Seleccione un tipo de transacción.
       </div>
-
-      <!-- Sección de Datos Principales -->
-      <div *ngIf="activeSection === 'main'" class="form-section">
-        <label for="transactionType">Tipo de Transacción *</label>
-        <select id="transactionType" formControlName="transactionType" [ngClass]="{'input-valid': saleForm.get('transactionType')?.valid, 'input-invalid': saleForm.get('transactionType')?.invalid && saleForm.get('transactionType')?.touched}">
-          <option value="">Seleccione una opción</option>
-          <option value="venta">Venta</option>
-          <option value="arriendo">Arriendo</option>
-          <option value="ambos">Ambos</option>
-        </select>
-        <div *ngIf="saleForm.get('transactionType')?.hasError('required') && saleForm.get('transactionType')?.touched" class="error">Este campo es obligatorio.</div>
-
-        <label for="address">Dirección *</label>
-        <input id="address" type="text" formControlName="address" placeholder="Dirección completa" />
-
-        <label for="title">Barrio *</label>
-        <input id="title" type="text" formControlName="title" placeholder="Ej. Casa en el centro" />
-
-        <label for="price">Precio (COP) *</label>
-        <input id="price" type="number" formControlName="price" placeholder="Ej. 100000" />
-
-        <label for="images">Imágenes del Inmueble</label>
-        <input id="images" type="file" (change)="onFileSelected($event)" multiple accept="image/*" />
-        <div *ngIf="uploadedImages.length > 0" class="image-preview">
-          <div *ngFor="let image of uploadedImages; let i = index">
-            <img [src]="image.previewUrl" alt="Vista previa de imagen {{i + 1}}">
-            <button type="button" (click)="removeImage(i)">Eliminar</button>
-          </div>
-        </div>
+    </div>
+    <div class="form-section">
+      <label for="direccion">Dirección:</label>
+      <input id="direccion" formControlName="direccion" type="text" [class.input-invalid]="saleForm.get('direccion')?.invalid && saleForm.get('direccion')?.touched" required />
+      <div *ngIf="saleForm.get('direccion')?.invalid && saleForm.get('direccion')?.touched" class="error">
+        Ingrese una dirección válida.
       </div>
-
-      <!-- Sección de Detalles Adicionales -->
-      <div *ngIf="activeSection === 'details'" class="form-section">
-        <label for="bedrooms">Habitaciones</label>
-        <input id="bedrooms" type="number" formControlName="bedrooms" placeholder="Ej. 3" />
-
-        <label for="bathrooms">Baños</label>
-        <input id="bathrooms" type="number" formControlName="bathrooms" placeholder="Ej. 2" />
-
-        <label for="area">Área (m²)</label>
-        <input id="area" type="number" formControlName="area" placeholder="Ej. 120" />
-
-        <label for="description">Descripción</label>
-        <textarea id="description" formControlName="description" rows="3" placeholder="Descripción del inmueble"></textarea>
-
+    </div>
+    <div class="form-section">
+      <label for="barrio">Barrio:</label>
+      <input id="barrio" formControlName="barrio" type="text" [class.input-invalid]="saleForm.get('barrio')?.invalid && saleForm.get('barrio')?.touched" required />
+      <div *ngIf="saleForm.get('barrio')?.invalid && saleForm.get('barrio')?.touched" class="error">
+        Ingrese el barrio.
       </div>
+    </div>
+    <div class="form-section">
+      <label for="precio">Precio:</label>
+      <input id="precio" formControlName="precio" type="number" [class.input-invalid]="saleForm.get('precio')?.invalid && saleForm.get('precio')?.touched" required />
+      <div *ngIf="saleForm.get('precio')?.invalid && saleForm.get('precio')?.touched" class="error">
+        Ingrese un precio válido.
+      </div>
+    </div>
+    <div class="form-section">
+      <label for="habitaciones">Habitaciones:</label>
+      <input id="habitaciones" formControlName="habitaciones" type="number" min="1" [class.input-invalid]="saleForm.get('habitaciones')?.invalid && saleForm.get('habitaciones')?.touched" />
+      <div *ngIf="saleForm.get('habitaciones')?.invalid && saleForm.get('habitaciones')?.touched" class="error">
+        Ingrese un número válido de habitaciones.
+      </div>
+    </div>
+    <div class="form-section">
+      <label for="banos">Baños:</label>
+      <input id="banos" formControlName="banos" type="number" min="1" [class.input-invalid]="saleForm.get('banos')?.invalid && saleForm.get('banos')?.touched" />
+      <div *ngIf="saleForm.get('banos')?.invalid && saleForm.get('banos')?.touched" class="error">
+        Ingrese un número válido de baños.
+      </div>
+    </div>
+    <div class="form-section">
+      <label for="area">Área (m²):</label>
+      <input id="area" formControlName="area" type="number" min="1" [class.input-invalid]="saleForm.get('area')?.invalid && saleForm.get('area')?.touched" />
+      <div *ngIf="saleForm.get('area')?.invalid && saleForm.get('area')?.touched" class="error">
+        Ingrese un área válida.
+      </div>
+    </div>
+    <div class="form-section">
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" formControlName="descripcion" maxlength="500" [class.input-invalid]="saleForm.get('descripcion')?.invalid && saleForm.get('descripcion')?.touched"></textarea>
+      <div *ngIf="saleForm.get('descripcion')?.invalid && saleForm.get('descripcion')?.touched" class="error">
+        La descripción no puede exceder los 500 caracteres.
+      </div>
+    </div>
+    <button type="submit" [disabled]="loading || !saleForm.valid">
+      {{ loading ? 'Registrando...' : 'Registrar' }}
+    </button>
+  </form>
+</div>
 
-      <!-- Botón de envío -->
-      <button type="submit"  [disabled]="!saleForm.valid || loading">{{ loading ? 'Cargando...' : 'Registrar Venta' }}</button>
-    </form>
-  </div>
-</body>

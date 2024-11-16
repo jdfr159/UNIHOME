@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,15 +8,11 @@ import { map, Observable } from 'rxjs';
 })
 export class PropiedadesService {
 
-  private apiUrl = 'http://localhost:8080/api/listar'; // Cambia esta URL por la de tu servidor backend
+  private apiUrl = 'http://localhost:8080/api/listar'; // Endpoint para listar propiedades
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Método para obtener las propiedades desde el backend
-  getPropiedades(): Observable<any[]> {
-    return this.http.get<any>(this.apiUrl).pipe(
-      map(response => response.data) // Extraemos la propiedad 'data' que contiene las propiedades
-    );
+  listarPropiedades(): Observable<any> {
+    return this.http.get(this.apiUrl);
   }
-
 }

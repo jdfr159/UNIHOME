@@ -18,18 +18,14 @@ export class PropiedadesComponent implements OnInit {
   constructor(private propiedadesService: PropiedadesService) {}
 
   ngOnInit(): void {
-    // Llamamos al servicio para obtener las propiedades
-    this.propiedadesService.getPropiedades().subscribe({
+    this.propiedadesService.listarPropiedades().subscribe({
       next: (data) => {
-        this.propiedades = data;  // Asignamos las propiedades al array
+        this.propiedades = data; // Ajusta según la estructura de la respuesta del backend
         this.loading = false;
       },
       error: (error) => {
         console.error('Error al obtener las propiedades:', error);
         this.errorMessage = 'Error al cargar las propiedades.';
-        this.loading = false;
-      },
-      complete: () => {
         this.loading = false;
       }
     });

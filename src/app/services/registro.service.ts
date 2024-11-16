@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class RegistroService {
 
-  private apiUrl = 'http://localhost:8080/user/crear';
+  private apiUrl = 'http://localhost:8080/api/crear'; // Endpoint para crear propiedades
 
   constructor(private http: HttpClient) {}
 
-  registrarUsuario(usuarioData: any): Observable<any> {
-    return this.http.post(this.apiUrl, usuarioData);
+  agregarPropiedad(propiedad: any): Observable<any> {
+    return this.http.post(this.apiUrl, propiedad);
   }
 }

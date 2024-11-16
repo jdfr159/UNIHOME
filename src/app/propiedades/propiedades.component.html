@@ -1,24 +1,27 @@
-<div *ngIf="loading" class="loading">Cargando...</div>
+<div class="properties-container">
+  <h2>Listado de Propiedades</h2>
 
-<div *ngIf="errorMessage" class="error-message">
-  {{ errorMessage }}
-</div>
+  <div *ngIf="loading" class="loading">
+    Cargando propiedades...
+  </div>
 
-<div *ngIf="!loading && propiedades.length === 0" class="no-propiedades">No hay propiedades disponibles.</div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
 
-<div class="propiedades-container" *ngIf="!loading && propiedades.length > 0">
-  <div class="propiedad-card" *ngFor="let propiedad of propiedades">
-    <img src="ruta-de-imagen.jpg" alt="Imagen propiedad" class="propiedad-img">
-    <div class="propiedad-details">
-      <h2>{{ propiedad.tipo }}</h2>
-      <p><strong>Dirección:</strong> {{ propiedad.dirreccion }}</p>
-      <p><strong>Barrio:</strong> {{ propiedad.barrio }}</p>
-      <p><strong>Precio:</strong> ${{ propiedad.precio }}</p>
-      <p><strong>Habitaciones:</strong> {{ propiedad.habitaciones }}</p>
-      <p><strong>Baños:</strong> {{ propiedad.banos }}</p>
-      <p><strong>Área:</strong> {{ propiedad.area }} m²</p>
-      <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
-    </div>
+  <div *ngIf="!loading && propiedades.length === 0" class="no-propiedades">
+    No hay propiedades disponibles.
+  </div>
+
+  <div class="property-card" *ngFor="let propiedad of propiedades">
+    <h3>{{ propiedad.title }}</h3>
+    <p><strong>Precio:</strong> {{ propiedad.precio | currency }}</p>
+    <p><strong>Dirección:</strong> {{ propiedad.direccion }}</p>
+    <p><strong>Habitaciones:</strong> {{ propiedad.habitaciones }}</p>
+    <p><strong>Baños:</strong> {{ propiedad.banos }}</p>
+    <p><strong>Área:</strong> {{ propiedad.area }} m²</p>
+    <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
+    <p><strong>Tipo de Transacción:</strong> {{ propiedad.tipo }}</p>
   </div>
 </div>
 

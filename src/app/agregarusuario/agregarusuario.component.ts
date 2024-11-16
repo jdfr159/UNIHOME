@@ -29,18 +29,4 @@ export class AgregarusuarioComponent {
     });
   }
 
-  onSubmit() {
-    if (this.registroForm.valid) {
-      this.registroService.registrarUsuario(this.registroForm.value).subscribe(
-        response => {
-          console.log('Usuario registrado con éxito:', response);
-          this.router.navigate(['/login']); // Redirige al login
-        },
-        error => {
-          console.error('Error al registrar usuario:', error);
-        }
-      );
-    }
-  }
-
 }
